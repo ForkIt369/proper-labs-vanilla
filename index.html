@@ -36,25 +36,37 @@
                     <h3>Overview</h3>
                     <ul>
                         <li><a href="#introduction" class="nav-link active">Introduction</a></li>
-                        <li><a href="#ecosystem" class="nav-link">Ecosystem Overview</a></li>
-                        <li><a href="#mission" class="nav-link">Mission & Values</a></li>
+                        <li><a href="content/pages/who-we-are.md" class="nav-link" target="_content">Who We Are</a></li>
+                        <li><a href="content/pages/ecosystem-overview.md" class="nav-link" target="_content">Ecosystem Overview</a></li>
+                        <li><a href="content/pages/value-loop.md" class="nav-link" target="_content">How It Works</a></li>
                     </ul>
                 </div>
 
                 <div class="nav-section">
-                    <h3>Projects</h3>
+                    <h3>Ecosystem</h3>
                     <ul>
                         <li>
-                            <a href="broverse.html" class="nav-link">Broverse</a>
+                            <a href="content/pages/ecosystem/broverse.md" class="nav-link" target="_content">Broverse</a>
                             <ul class="nav-sub">
-                                <li><a href="broverse.html#overview" class="nav-link">Overview</a></li>
-                                <li><a href="broverse.html#agents" class="nav-link">AI Agents</a></li>
-                                <li><a href="broverse.html#quests" class="nav-link">Quest System</a></li>
+                                <li><a href="content/pages/ecosystem/broverse.md#core-architecture" class="nav-link" target="_content">Architecture</a></li>
+                                <li><a href="content/pages/ecosystem/broverse.md#problems-were-solving" class="nav-link" target="_content">Problems</a></li>
+                                <li><a href="content/pages/ecosystem/broverse.md#target-audiences" class="nav-link" target="_content">Audiences</a></li>
                             </ul>
                         </li>
-                        <li><a href="#verseid" class="nav-link">VerseID</a></li>
-                        <li><a href="#brofit" class="nav-link">BroFit</a></li>
-                        <li><a href="#sis" class="nav-link">SIS</a></li>
+                        <li><a href="content/pages/ecosystem/verseid.md" class="nav-link" target="_content">VerseID</a></li>
+                        <li><a href="content/pages/ecosystem/brofit.md" class="nav-link" target="_content">Brofit</a></li>
+                        <li><a href="content/pages/ecosystem/sis.md" class="nav-link" target="_content">SIS (AI)</a></li>
+                        <li><a href="content/pages/ecosystem/bro-token.md" class="nav-link" target="_content">$BRO Token</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Strategy</h3>
+                    <ul>
+                        <li><a href="content/pages/revenue-models.md" class="nav-link" target="_content">Revenue Models</a></li>
+                        <li><a href="content/pages/roadmap.md" class="nav-link" target="_content">Roadmap</a></li>
+                        <li><a href="content/pages/culture.md" class="nav-link" target="_content">Culture</a></li>
+                        <li><a href="content/pages/vision.md" class="nav-link" target="_content">Vision</a></li>
                     </ul>
                 </div>
 
@@ -263,6 +275,57 @@ const ProperLabs = {
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Load markdown content when clicking navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle navigation clicks for markdown files
+            document.querySelectorAll('a[href$=".md"]').forEach(link => {
+                link.addEventListener('click', async function(e) {
+                    if (this.target !== '_content') return;
+                    e.preventDefault();
+
+                    const contentPath = this.getAttribute('href');
+                    try {
+                        const response = await fetch(contentPath);
+                        const markdown = await response.text();
+                        const html = marked.parse(markdown);
+
+                        // Update main content area
+                        const contentWrapper = document.querySelector('.content-wrapper');
+                        if (contentWrapper) {
+                            contentWrapper.innerHTML = `
+                                <nav class="breadcrumbs">
+                                    <a href="#">Home</a>
+                                    <span>/</span>
+                                    <span>${contentPath.split('/').pop().replace('.md', '')}</span>
+                                </nav>
+                                <div class="markdown-content">
+                                    ${html}
+                                </div>
+                            `;
+
+                            // Highlight code blocks
+                            if (window.Prism) {
+                                Prism.highlightAll();
+                            }
+
+                            // Update active navigation
+                            document.querySelectorAll('.nav-link').forEach(navLink => {
+                                navLink.classList.remove('active');
+                            });
+                            this.classList.add('active');
+
+                            // Scroll to top
+                            window.scrollTo(0, 0);
+                        }
+                    } catch (error) {
+                        console.error('Error loading content:', error);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
