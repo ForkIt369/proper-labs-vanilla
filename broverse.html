@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broverse - Proper Labs</title>
+    <link rel="stylesheet" href="css/ddv-codex.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+</head>
+<body x-data="{ sidebarOpen: true, activeTab: 'users' }">
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" :class="{ 'collapsed': !sidebarOpen }">
+            <div class="sidebar-header">
+                <h2>Proper Labs</h2>
+                <button @click="sidebarOpen = !sidebarOpen" class="sidebar-toggle">
+                    <span x-show="sidebarOpen">◀</span>
+                    <span x-show="!sidebarOpen">▶</span>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav" x-show="sidebarOpen">
+                <div class="nav-section">
+                    <h3>Overview</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="who-we-are.html" class="nav-link">Who We Are</a></li>
+                        <li><a href="ecosystem.html" class="nav-link">Ecosystem</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Ecosystem</h3>
+                    <ul>
+                        <li><a href="broverse.html" class="nav-link active">Broverse</a></li>
+                        <li><a href="verseid.html" class="nav-link">VerseID</a></li>
+                        <li><a href="brofit.html" class="nav-link">Brofit</a></li>
+                        <li><a href="sis.html" class="nav-link">SIS (AI)</a></li>
+                        <li><a href="bro-token.html" class="nav-link">$BRO Token</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Strategy</h3>
+                    <ul>
+                        <li><a href="revenue.html" class="nav-link">Revenue Models</a></li>
+                        <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+                        <li><a href="culture.html" class="nav-link">Culture</a></li>
+                        <li><a href="vision.html" class="nav-link">Vision</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Page Header with Hero Section -->
+                <header class="page-header hero-gradient">
+                    <div class="hero-content">
+                        <div class="hero-badge">ECOSYSTEM</div>
+                        <h1 class="hero-title gradient-text">Broverse</h1>
+                        <p class="hero-lead">The meta layer, cultural hub, and brand universe of Proper Labs — where culture, identity, and finance converge.</p>
+
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <span class="stat-value">100K+</span>
+                                <span class="stat-label">Target Users</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">4</span>
+                                <span class="stat-label">Core Pillars</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">$0.10</span>
+                                <span class="stat-label">CPVA Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Core Architecture Section -->
+                <section id="core-architecture" class="content-section">
+                    <div class="section-header">
+                        <h2>Core Architecture</h2>
+                        <p class="section-subtitle">Four pillars powered by dedicated AI agents</p>
+                    </div>
+
+                    <div class="pillars-grid">
+                        <div class="pillar-card agent-bigsis">
+                            <div class="pillar-icon">🏠</div>
+                            <h3>BroVerse</h3>
+                            <span class="pillar-subtitle">Identity Hub</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">Big Sis</span>
+                                <span class="agent-role">Mentor</span>
+                            </div>
+                            <ul class="pillar-features">
+                                <li>VerseID dashboard & mission control</li>
+                                <li>Track progress, tiers, and reputation</li>
+                                <li>Central hub for identity management</li>
+                            </ul>
+                        </div>
+
+                        <div class="pillar-card agent-bro">
+                            <div class="pillar-icon">🚀</div>
+                            <h3>BroFlows</h3>
+                            <span class="pillar-subtitle">Quest System</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">Bro</span>
+                                <span class="agent-role">Catalyst</span>
+                            </div>
+                            <ul class="pillar-features">
+                                <li>Gamified actions and experiences</li>
+                                <li>Drive engagement and growth</li>
+                                <li>Accumulation of BITS credits</li>
+                            </ul>
+                        </div>
+
+                        <div class="pillar-card agent-lilsis">
+                            <div class="pillar-icon">🎨</div>
+                            <h3>BroVibes</h3>
+                            <span class="pillar-subtitle">Creator Economy</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">Lil Sis</span>
+                                <span class="agent-role">Creative Spark</span>
+                            </div>
+                            <ul class="pillar-features">
+                                <li>Remix tools and AI generators</li>
+                                <li>User-generated content features</li>
+                                <li>Community co-creation platform</li>
+                            </ul>
+                        </div>
+
+                        <div class="pillar-card agent-cbo">
+                            <div class="pillar-icon">💎</div>
+                            <h3>Brofit</h3>
+                            <span class="pillar-subtitle">Financial Layer</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">CBO</span>
+                                <span class="agent-role">Strategist</span>
+                            </div>
+                            <ul class="pillar-features">
+                                <li>Economic foundation of ecosystem</li>
+                                <li>Links reputation to DeFi vaults</li>
+                                <li>Yield strategies & distribution</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Problems We're Solving -->
+                <section id="problems" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>Problems We're Solving</h2>
+                        <p class="section-subtitle">Current market challenges that Broverse addresses</p>
+                    </div>
+
+                    <div class="problems-grid">
+                        <div class="problem-card">
+                            <div class="problem-icon">🔄</div>
+                            <h3>No Portable Reputation</h3>
+                            <p>Web3 quests are transactional with no carry-over identity. Every campaign starts from zero, resulting in inflated numbers, low trust, and no loyalty.</p>
+                            <div class="solution-tag">
+                                <span>Solution: Unified VerseID</span>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <div class="problem-icon">🤖</div>
+                            <h3>Bot & Sybil Farming</h3>
+                            <p>Growth campaigns are plagued by bots. Projects pay for "engagement" that delivers no retention or real value.</p>
+                            <div class="solution-tag">
+                                <span>Solution: Vibe Oracle Verification</span>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <div class="problem-icon">💰</div>
+                            <h3>Under-Monetized Creators</h3>
+                            <p>Platforms capture attention, but creators can't turn "vibes" into durable value. Reputation vanishes in the noise.</p>
+                            <div class="solution-tag">
+                                <span>Solution: Creator Economy Tools</span>
+                            </div>
+                        </div>
+
+                        <div class="problem-card">
+                            <div class="problem-icon">🧠</div>
+                            <h3>AI Data Problem</h3>
+                            <p>AI companies need verified human interaction data. Current AI is trained on scraped text, not real reputation-verified actions.</p>
+                            <div class="solution-tag">
+                                <span>Solution: Structured Datasets</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Our Solution -->
+                <section id="solution" class="content-section">
+                    <div class="section-header">
+                        <h2>Our Solution</h2>
+                        <p class="section-subtitle">How Broverse revolutionizes the Web3 experience</p>
+                    </div>
+
+                    <div class="solution-features">
+                        <div class="feature-row">
+                            <div class="feature-icon">🆔</div>
+                            <div class="feature-content">
+                                <h3>Identity-Native Social Economy</h3>
+                                <p>Broverse makes reputation portable through VerseID. Participation (BITS) and recognition (BEATS) accumulate into a unified identity layer users truly own.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-row">
+                            <div class="feature-icon">📊</div>
+                            <div class="feature-content">
+                                <h3>New Growth Standard (CPVA)</h3>
+                                <p>With VerseID verification, campaigns move from CPC/CPA to <strong>Cost-Per-Verified-Action</strong>. Brands pay only for real, high-signal users.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-row">
+                            <div class="feature-icon">📈</div>
+                            <div class="feature-content">
+                                <h3>Enterprise Benchmarks & Datasets</h3>
+                                <p>Participation data becomes structured benchmarks, valuable to Web3 protocols, enterprises, and AI companies seeking verified human data.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-row">
+                            <div class="feature-icon">🏦</div>
+                            <div class="feature-content">
+                                <h3>Reputation-Tied Yield</h3>
+                                <p>Unlike traditional staking, Brofit links identity to yield multipliers. Your reputation literally becomes financial upside.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-row">
+                            <div class="feature-icon">🤖</div>
+                            <div class="feature-content">
+                                <h3>AI Agent-Powered UX</h3>
+                                <p>Users interact with personality-driven agents, remix content, and build cultural capital — not just click through task lists.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Target Audiences -->
+                <section id="audiences" class="content-section">
+                    <div class="section-header">
+                        <h2>Target Audiences</h2>
+                        <p class="section-subtitle">Who we serve and why they care</p>
+                    </div>
+
+                    <div class="tabs" x-data="{ activeTab: 'users' }">
+                        <div class="tab-list">
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'users' }"
+                                    @click="activeTab = 'users'">
+                                B2C Users
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'partners' }"
+                                    @click="activeTab = 'partners'">
+                                B2B Partners
+                            </button>
+                        </div>
+
+                        <div class="tab-content">
+                            <div x-show="activeTab === 'users'" class="tab-panel">
+                                <div class="audience-grid">
+                                    <div class="audience-card">
+                                        <h3>Who They Are</h3>
+                                        <ul>
+                                            <li>Gen Z / Millennials active in Web3, gaming, creator economies</li>
+                                            <li>Creators & remixers (memes, AI art, short-form video)</li>
+                                            <li>Guild leaders, DAO contributors, power users</li>
+                                            <li>DeFi participants seeking gamified experiences</li>
+                                        </ul>
+                                    </div>
+                                    <div class="audience-card">
+                                        <h3>Why They Care</h3>
+                                        <ul>
+                                            <li>Want recognition that carries across platforms</li>
+                                            <li>Tired of shallow airdrops and one-off quests</li>
+                                            <li>Value tying social capital to financial capital</li>
+                                            <li>Attracted by agent-driven, gamified experiences</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-show="activeTab === 'partners'" class="tab-panel">
+                                <div class="audience-grid">
+                                    <div class="audience-card">
+                                        <h3>Who They Are</h3>
+                                        <ul>
+                                            <li>Web3 protocols, L2s, and dApps (Polygon, Optimism, Arbitrum)</li>
+                                            <li>Consumer brands entering Web3 (Nike, Adidas, Revolut)</li>
+                                            <li>DeFi protocols needing verified users</li>
+                                            <li>AI companies seeking structured human datasets</li>
+                                        </ul>
+                                    </div>
+                                    <div class="audience-card">
+                                        <h3>Why They Care</h3>
+                                        <ul>
+                                            <li>Need anti-bot, high-signal campaigns with provable ROI</li>
+                                            <li>Want to transition to CPVA (cost-per-verified-action)</li>
+                                            <li>Require benchmark intelligence for user acquisition</li>
+                                            <li>Seek verified provenance datasets for AI training</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Success Metrics -->
+                <section id="metrics" class="content-section metrics-section">
+                    <div class="section-header">
+                        <h2>Success Metrics</h2>
+                        <p class="section-subtitle">Key performance indicators and targets</p>
+                    </div>
+
+                    <div class="metrics-table-wrapper">
+                        <table class="metrics-table">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Current</th>
+                                    <th>30-Day Target</th>
+                                    <th>90-Day Target</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Daily Active Users</strong></td>
+                                    <td>0</td>
+                                    <td>1,000</td>
+                                    <td>10,000+</td>
+                                    <td>Engagement measure</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CPVA Rate</strong></td>
+                                    <td>-</td>
+                                    <td>$0.50</td>
+                                    <td>$0.10-$0.30</td>
+                                    <td>Verified action cost</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>User Retention (30-day)</strong></td>
+                                    <td>-</td>
+                                    <td>30%</td>
+                                    <td>40%+</td>
+                                    <td>Stickiness indicator</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Creator Revenue Share</strong></td>
+                                    <td>0%</td>
+                                    <td>50%</td>
+                                    <td>70%</td>
+                                    <td>Community value distribution</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quest Completions</strong></td>
+                                    <td>0</td>
+                                    <td>10,000</td>
+                                    <td>100,000+</td>
+                                    <td>Activity volume</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="cta-section">
+                    <div class="cta-content">
+                        <h2>Ready to Join the Revolution?</h2>
+                        <p>Be part of the cultural hub where AI and humans co-create the future of Web3.</p>
+                        <div class="cta-buttons">
+                            <a href="#" class="btn btn-primary btn-lg">Launch App</a>
+                            <a href="verseid.html" class="btn btn-secondary btn-lg">Learn About VerseID</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="page-footer">
+                    <div class="footer-nav">
+                        <a href="index.html">← Back to Home</a>
+                        <a href="verseid.html">Next: VerseID →</a>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BroFit - DeFi Financial Engine | Proper Labs</title>
+    <link rel="stylesheet" href="css/ddv-codex.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+</head>
+<body x-data="{ sidebarOpen: true, searchQuery: '', tocOpen: true }">
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" :class="{ 'collapsed': !sidebarOpen }">
+            <div class="sidebar-header">
+                <h2>Proper Labs</h2>
+                <button @click="sidebarOpen = !sidebarOpen" class="sidebar-toggle">
+                    <span x-show="sidebarOpen">◀</span>
+                    <span x-show="!sidebarOpen">▶</span>
+                </button>
+            </div>
+
+            <!-- Search -->
+            <div class="sidebar-search" x-show="sidebarOpen">
+                <input type="text"
+                       x-model="searchQuery"
+                       placeholder="Search documentation..."
+                       class="search-input">
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav" x-show="sidebarOpen">
+                <div class="nav-section">
+                    <h3>Overview</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="who-we-are.html" class="nav-link">Who We Are</a></li>
+                        <li><a href="ecosystem.html" class="nav-link">Ecosystem Overview</a></li>
+                        <li><a href="value-loop.html" class="nav-link">How It Works</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Ecosystem</h3>
+                    <ul>
+                        <li><a href="broverse.html" class="nav-link">Broverse</a></li>
+                        <li><a href="verseid.html" class="nav-link">VerseID</a></li>
+                        <li><a href="brofit.html" class="nav-link active">BroFit</a></li>
+                        <li><a href="sis.html" class="nav-link">SIS (AI)</a></li>
+                        <li><a href="bro-token.html" class="nav-link">$BRO Token</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Strategy</h3>
+                    <ul>
+                        <li><a href="revenue.html" class="nav-link">Revenue Models</a></li>
+                        <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+                        <li><a href="culture.html" class="nav-link">Culture</a></li>
+                        <li><a href="vision.html" class="nav-link">Vision</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <a href="#">Ecosystem</a>
+                    <span>/</span>
+                    <span>BroFit</span>
+                </nav>
+
+                <!-- Hero Section -->
+                <section class="hero-gradient">
+                    <div class="hero-content">
+                        <div class="hero-badge">DeFi Financial Engine</div>
+                        <h1 class="hero-title">
+                            <span class="gradient-text">BroFit</span>
+                        </h1>
+                        <p class="hero-lead">
+                            Making complex DeFi strategies accessible to everyone through gamified vaults and AI-optimized yields.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <span class="stat-value">23%</span>
+                                <span class="stat-label">Avg APY Target</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">$5M</span>
+                                <span class="stat-label">Initial TVL Goal</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">7</span>
+                                <span class="stat-label">Vault Strategies</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Overview Section -->
+                <section id="overview" class="content-section">
+                    <div class="section-header">
+                        <h2>What is BroFit?</h2>
+                        <p class="section-subtitle">
+                            The financial backbone of the Broverse ecosystem, making DeFi accessible and profitable for all users.
+                        </p>
+                    </div>
+
+                    <div class="callout callout-info">
+                        <h4>Key Innovation</h4>
+                        <p>BroFit transforms complex DeFi strategies into simple, gamified experiences that anyone can participate in, regardless of their technical knowledge.</p>
+                    </div>
+
+                    <p>BroFit serves as the decentralized finance engine powering the entire Proper Labs ecosystem. By combining sophisticated yield strategies with intuitive interfaces and AI optimization, BroFit democratizes access to advanced DeFi opportunities.</p>
+                </section>
+
+                <!-- Core Features Section -->
+                <section id="features" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>Core Features</h2>
+                    </div>
+
+                    <div class="pillars-grid">
+                        <div class="pillar-card agent-lilsis">
+                            <div class="pillar-icon">🏦</div>
+                            <h3>Smart Vaults</h3>
+                            <span class="pillar-subtitle">Automated Strategies</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">LilSis</span>
+                                <span class="agent-role">Vault Optimizer</span>
+                            </div>
+                            <p>Pre-configured yield strategies that automatically rebalance and optimize returns based on market conditions.</p>
+                            <ul class="pillar-features">
+                                <li>Auto-compounding yields</li>
+                                <li>Risk-adjusted strategies</li>
+                                <li>Gas optimization</li>
+                            </ul>
+                        </div>
+
+                        <div class="pillar-card agent-cbo">
+                            <div class="pillar-icon">🎮</div>
+                            <h3>Gamified Staking</h3>
+                            <span class="pillar-subtitle">Engagement Mechanics</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">CBO</span>
+                                <span class="agent-role">Rewards Manager</span>
+                            </div>
+                            <p>Transform traditional staking into an engaging experience with achievements, levels, and multipliers.</p>
+                            <ul class="pillar-features">
+                                <li>Achievement system</li>
+                                <li>Loyalty multipliers</li>
+                                <li>Social leaderboards</li>
+                            </ul>
+                        </div>
+
+                        <div class="pillar-card agent-bigsis">
+                            <div class="pillar-icon">🤖</div>
+                            <h3>AI Optimization</h3>
+                            <span class="pillar-subtitle">Intelligent Yields</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">BigSis</span>
+                                <span class="agent-role">Strategy Analyst</span>
+                            </div>
+                            <p>Machine learning algorithms continuously optimize vault strategies for maximum risk-adjusted returns.</p>
+                            <ul class="pillar-features">
+                                <li>Market prediction</li>
+                                <li>Strategy backtesting</li>
+                                <li>Risk assessment</li>
+                            </ul>
+                        </div>
+
+                        <div class="pillar-card agent-bro">
+                            <div class="pillar-icon">🌐</div>
+                            <h3>Cross-Chain</h3>
+                            <span class="pillar-subtitle">Multi-Network</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">Bro</span>
+                                <span class="agent-role">Bridge Master</span>
+                            </div>
+                            <p>Access opportunities across multiple blockchains through seamless bridging and aggregation.</p>
+                            <ul class="pillar-features">
+                                <li>15+ networks supported</li>
+                                <li>Unified interface</li>
+                                <li>Optimal routing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Vault Strategies Section -->
+                <section id="strategies" class="content-section">
+                    <div class="section-header">
+                        <h2>Vault Strategies</h2>
+                        <p class="section-subtitle">
+                            Seven distinct strategies designed for different risk profiles and investment goals
+                        </p>
+                    </div>
+
+                    <div class="tabs" x-data="{ activeTab: 'conservative' }">
+                        <div class="tab-list">
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'conservative' }"
+                                    @click="activeTab = 'conservative'">
+                                Conservative
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'balanced' }"
+                                    @click="activeTab = 'balanced'">
+                                Balanced
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'aggressive' }"
+                                    @click="activeTab = 'aggressive'">
+                                Aggressive
+                            </button>
+                        </div>
+
+                        <div class="tab-content">
+                            <div x-show="activeTab === 'conservative'" class="tab-panel">
+                                <h3>Conservative Strategies</h3>
+                                <div class="strategy-grid">
+                                    <div class="strategy-card">
+                                        <h4>🛡️ Stable Yield</h4>
+                                        <p>Focus on stablecoin farming with minimal impermanent loss risk.</p>
+                                        <div class="strategy-metrics">
+                                            <span>Target APY: 8-12%</span>
+                                            <span>Risk Level: Low</span>
+                                        </div>
+                                    </div>
+                                    <div class="strategy-card">
+                                        <h4>💎 Blue Chip Lending</h4>
+                                        <p>Lending strategies using only top-tier assets like ETH and BTC.</p>
+                                        <div class="strategy-metrics">
+                                            <span>Target APY: 5-8%</span>
+                                            <span>Risk Level: Very Low</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-show="activeTab === 'balanced'" class="tab-panel">
+                                <h3>Balanced Strategies</h3>
+                                <div class="strategy-grid">
+                                    <div class="strategy-card">
+                                        <h4>⚖️ Dynamic Rebalancing</h4>
+                                        <p>Automated portfolio rebalancing between yield sources.</p>
+                                        <div class="strategy-metrics">
+                                            <span>Target APY: 15-20%</span>
+                                            <span>Risk Level: Medium</span>
+                                        </div>
+                                    </div>
+                                    <div class="strategy-card">
+                                        <h4>🔄 Liquidity Provision</h4>
+                                        <p>Optimized LP positions with active management.</p>
+                                        <div class="strategy-metrics">
+                                            <span>Target APY: 20-30%</span>
+                                            <span>Risk Level: Medium</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-show="activeTab === 'aggressive'" class="tab-panel">
+                                <h3>Aggressive Strategies</h3>
+                                <div class="strategy-grid">
+                                    <div class="strategy-card">
+                                        <h4>🚀 Leverage Farming</h4>
+                                        <p>Leveraged yield farming with active risk management.</p>
+                                        <div class="strategy-metrics">
+                                            <span>Target APY: 40-60%</span>
+                                            <span>Risk Level: High</span>
+                                        </div>
+                                    </div>
+                                    <div class="strategy-card">
+                                        <h4>⚡ Flash Strategies</h4>
+                                        <p>Arbitrage and flash loan strategies for maximum yields.</p>
+                                        <div class="strategy-metrics">
+                                            <span>Target APY: 50-100%+</span>
+                                            <span>Risk Level: Very High</span>
+                                        </div>
+                                    </div>
+                                    <div class="strategy-card">
+                                        <h4>🎰 Degen Plays</h4>
+                                        <p>High-risk, high-reward opportunities in emerging protocols.</p>
+                                        <div class="strategy-metrics">
+                                            <span>Target APY: 100%+</span>
+                                            <span>Risk Level: Extreme</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- How It Works Section -->
+                <section id="how-it-works" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>How BroFit Works</h2>
+                    </div>
+
+                    <div class="solution-features">
+                        <div class="feature-row">
+                            <div class="feature-icon">1️⃣</div>
+                            <div class="feature-content">
+                                <h3>Connect & Deposit</h3>
+                                <p>Connect your wallet and deposit funds into your chosen vault strategy. Start with as little as $100.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-row">
+                            <div class="feature-icon">2️⃣</div>
+                            <div class="feature-content">
+                                <h3>AI Optimization</h3>
+                                <p>Our AI agents continuously monitor and optimize your positions across multiple protocols and chains.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-row">
+                            <div class="feature-icon">3️⃣</div>
+                            <div class="feature-content">
+                                <h3>Earn & Compound</h3>
+                                <p>Yields are automatically harvested and compounded. Earn additional $BRO rewards for loyalty.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-row">
+                            <div class="feature-icon">4️⃣</div>
+                            <div class="feature-content">
+                                <h3>Track & Withdraw</h3>
+                                <p>Monitor performance through intuitive dashboards. Withdraw anytime with no lock-up periods.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Integration Section -->
+                <section id="integration" class="content-section">
+                    <div class="section-header">
+                        <h2>Ecosystem Integration</h2>
+                    </div>
+
+                    <div class="integration-grid">
+                        <div class="integration-card">
+                            <h3>🆔 VerseID Integration</h3>
+                            <p>Your on-chain reputation unlocks higher yields and exclusive vault access.</p>
+                            <ul>
+                                <li>Reputation-based APY boosts</li>
+                                <li>VIP vault access</li>
+                                <li>Reduced fees for trusted users</li>
+                            </ul>
+                        </div>
+
+                        <div class="integration-card">
+                            <h3>🌐 Broverse Rewards</h3>
+                            <p>Earn additional yields by participating in Broverse cultural activities.</p>
+                            <ul>
+                                <li>Social engagement multipliers</li>
+                                <li>Content creation bonuses</li>
+                                <li>Community vault pools</li>
+                            </ul>
+                        </div>
+
+                        <div class="integration-card">
+                            <h3>🤖 SIS Analytics</h3>
+                            <p>Personalized AI agents provide custom strategies based on your profile.</p>
+                            <ul>
+                                <li>Risk profile analysis</li>
+                                <li>Personalized recommendations</li>
+                                <li>Predictive alerts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security Section -->
+                <section id="security" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>Security & Safety</h2>
+                    </div>
+
+                    <div class="security-grid">
+                        <div class="security-item">
+                            <h3>🔒 Audited Contracts</h3>
+                            <p>All smart contracts undergo rigorous third-party security audits before deployment.</p>
+                        </div>
+                        <div class="security-item">
+                            <h3>🛡️ Insurance Coverage</h3>
+                            <p>Optional insurance coverage through leading DeFi protection protocols.</p>
+                        </div>
+                        <div class="security-item">
+                            <h3>⚠️ Risk Monitoring</h3>
+                            <p>24/7 automated monitoring for unusual activity and risk exposure.</p>
+                        </div>
+                        <div class="security-item">
+                            <h3>🔐 Non-Custodial</h3>
+                            <p>You maintain full control of your funds with transparent, on-chain operations.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="cta-section">
+                    <div class="cta-content">
+                        <h2>Start Earning with BroFit</h2>
+                        <p>Join thousands of users already maximizing their DeFi yields</p>
+                        <div class="cta-buttons">
+                            <a href="#" class="btn btn-secondary">Launch App</a>
+                            <a href="#" class="btn btn-outline">View Documentation</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Page Footer -->
+                <footer class="page-footer">
+                    <nav class="footer-nav">
+                        <a href="verseid.html">
+                            <span>←</span>
+                            <span>VerseID</span>
+                        </a>
+                        <a href="sis.html">
+                            <span>SIS (AI)</span>
+                            <span>→</span>
+                        </a>
+                    </nav>
+                </footer>
+
+                <!-- Version Footer -->
+                <footer class="version-footer">
+                    <div class="version-info">
+                        <span>Version 1.0.0</span>
+                        <span>•</span>
+                        <span>Last updated: 2024</span>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Table of Contents -->
+            <aside class="toc" x-show="tocOpen">
+                <div class="toc-header">
+                    <h3>On This Page</h3>
+                    <button @click="tocOpen = !tocOpen" class="toc-toggle">×</button>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#features">Core Features</a></li>
+                        <li><a href="#strategies">Vault Strategies</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#integration">Ecosystem Integration</a></li>
+                        <li><a href="#security">Security & Safety</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </main>
+    </div>
+
+    <style>
+    .strategy-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-4);
+        margin-top: var(--space-6);
+    }
+
+    .strategy-card {
+        background: var(--color-white);
+        border: 1px solid var(--color-gray-200);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        transition: all var(--transition-base);
+    }
+
+    .strategy-card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+    }
+
+    .strategy-card h4 {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-3);
+    }
+
+    .strategy-metrics {
+        display: flex;
+        gap: var(--space-4);
+        margin-top: var(--space-4);
+        padding-top: var(--space-4);
+        border-top: 1px solid var(--color-gray-200);
+    }
+
+    .strategy-metrics span {
+        font-size: var(--text-sm);
+        color: var(--color-gray-600);
+    }
+
+    .integration-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-6);
+        margin-top: var(--space-6);
+    }
+
+    .integration-card {
+        background: var(--color-gray-50);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        border: 1px solid var(--color-gray-200);
+    }
+
+    .integration-card h3 {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-3);
+        color: var(--color-primary);
+    }
+
+    .integration-card ul {
+        list-style: none;
+        padding: 0;
+        margin-top: var(--space-4);
+    }
+
+    .integration-card li {
+        padding: var(--space-2) 0;
+        padding-left: var(--space-6);
+        position: relative;
+    }
+
+    .integration-card li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--color-success);
+    }
+
+    .security-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-6);
+        margin-top: var(--space-6);
+    }
+
+    .security-item {
+        text-align: center;
+    }
+
+    .security-item h3 {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-3);
+    }
+
+    .security-item p {
+        color: var(--color-gray-700);
+        line-height: var(--leading-relaxed);
+    }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

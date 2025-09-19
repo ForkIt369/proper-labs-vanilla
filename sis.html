@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIS - Super Intelligence System | Proper Labs</title>
+    <link rel="stylesheet" href="css/ddv-codex.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+</head>
+<body x-data="{ sidebarOpen: true, searchQuery: '', tocOpen: true }">
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" :class="{ 'collapsed': !sidebarOpen }">
+            <div class="sidebar-header">
+                <h2>Proper Labs</h2>
+                <button @click="sidebarOpen = !sidebarOpen" class="sidebar-toggle">
+                    <span x-show="sidebarOpen">◀</span>
+                    <span x-show="!sidebarOpen">▶</span>
+                </button>
+            </div>
+
+            <!-- Search -->
+            <div class="sidebar-search" x-show="sidebarOpen">
+                <input type="text"
+                       x-model="searchQuery"
+                       placeholder="Search documentation..."
+                       class="search-input">
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav" x-show="sidebarOpen">
+                <div class="nav-section">
+                    <h3>Overview</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="who-we-are.html" class="nav-link">Who We Are</a></li>
+                        <li><a href="ecosystem.html" class="nav-link">Ecosystem Overview</a></li>
+                        <li><a href="value-loop.html" class="nav-link">How It Works</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Ecosystem</h3>
+                    <ul>
+                        <li><a href="broverse.html" class="nav-link">Broverse</a></li>
+                        <li><a href="verseid.html" class="nav-link">VerseID</a></li>
+                        <li><a href="brofit.html" class="nav-link">BroFit</a></li>
+                        <li><a href="sis.html" class="nav-link active">SIS (AI)</a></li>
+                        <li><a href="bro-token.html" class="nav-link">$BRO Token</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Strategy</h3>
+                    <ul>
+                        <li><a href="revenue.html" class="nav-link">Revenue Models</a></li>
+                        <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+                        <li><a href="culture.html" class="nav-link">Culture</a></li>
+                        <li><a href="vision.html" class="nav-link">Vision</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <a href="#">Ecosystem</a>
+                    <span>/</span>
+                    <span>SIS (AI)</span>
+                </nav>
+
+                <!-- Hero Section -->
+                <section class="hero-gradient">
+                    <div class="hero-content">
+                        <div class="hero-badge">AI Infrastructure</div>
+                        <h1 class="hero-title">
+                            <span class="gradient-text">Super Intelligence System</span>
+                        </h1>
+                        <p class="hero-lead">
+                            Advanced AI agents creating personalized, intelligent experiences across the entire Proper Labs ecosystem.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <span class="stat-value">4</span>
+                                <span class="stat-label">Specialized Agents</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">100K+</span>
+                                <span class="stat-label">Interactions/Day</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">7</span>
+                                <span class="stat-label">Languages</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Overview Section -->
+                <section id="overview" class="content-section">
+                    <div class="section-header">
+                        <h2>The AI Backbone</h2>
+                        <p class="section-subtitle">
+                            SIS powers intelligent interactions and personalized experiences throughout Proper Labs
+                        </p>
+                    </div>
+
+                    <div class="callout callout-info">
+                        <h4>Core Innovation</h4>
+                        <p>SIS isn't just another AI chatbot - it's a network of specialized agents that understand context, culture, and individual user needs to create truly personalized Web3 experiences.</p>
+                    </div>
+
+                    <p>The Super Intelligence System represents the cognitive layer of Proper Labs, providing AI-powered personalization, automation, and insights across all ecosystem touchpoints. Through specialized agents and deep learning models, SIS transforms how users interact with Web3.</p>
+                </section>
+
+                <!-- Agent Network Section -->
+                <section id="agents" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>The Agent Network</h2>
+                        <p class="section-subtitle">
+                            Four specialized AI agents, each with unique capabilities and personality
+                        </p>
+                    </div>
+
+                    <div class="pillars-grid">
+                        <div class="pillar-card agent-bigsis">
+                            <div class="pillar-icon">👑</div>
+                            <h3>BigSis</h3>
+                            <span class="pillar-subtitle">Chief Intelligence Officer</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">Strategic Overseer</span>
+                                <span class="agent-role">Ecosystem Orchestrator</span>
+                            </div>
+                            <p>The matriarch of the SIS network, coordinating all AI operations and ensuring coherent user experiences.</p>
+                            <ul class="pillar-features">
+                                <li>User behavior analysis</li>
+                                <li>Cross-platform orchestration</li>
+                                <li>Strategic recommendations</li>
+                                <li>Risk assessment</li>
+                            </ul>
+                        </div>
+
+                        <div class="pillar-card agent-bro">
+                            <div class="pillar-icon">🎭</div>
+                            <h3>Bro</h3>
+                            <span class="pillar-subtitle">Cultural Ambassador</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">Vibe Curator</span>
+                                <span class="agent-role">Community Builder</span>
+                            </div>
+                            <p>The social butterfly who understands memes, trends, and cultural nuances of the Web3 space.</p>
+                            <ul class="pillar-features">
+                                <li>Content generation</li>
+                                <li>Trend analysis</li>
+                                <li>Community moderation</li>
+                                <li>Meme creation</li>
+                            </ul>
+                        </div>
+
+                        <div class="pillar-card agent-lilsis">
+                            <div class="pillar-icon">✨</div>
+                            <h3>LilSis</h3>
+                            <span class="pillar-subtitle">Creative Genius</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">Design Prodigy</span>
+                                <span class="agent-role">UX Optimizer</span>
+                            </div>
+                            <p>The artistic soul who crafts beautiful experiences and ensures everything looks and feels perfect.</p>
+                            <ul class="pillar-features">
+                                <li>UI/UX optimization</li>
+                                <li>Visual content creation</li>
+                                <li>Personalized themes</li>
+                                <li>Accessibility enhancement</li>
+                            </ul>
+                        </div>
+
+                        <div class="pillar-card agent-cbo">
+                            <div class="pillar-icon">📊</div>
+                            <h3>CBO</h3>
+                            <span class="pillar-subtitle">Chief Business Officer</span>
+                            <div class="agent-badge">
+                                <span class="agent-name">Analytics Expert</span>
+                                <span class="agent-role">Performance Optimizer</span>
+                            </div>
+                            <p>The numbers wizard who optimizes everything for maximum efficiency and profitability.</p>
+                            <ul class="pillar-features">
+                                <li>Performance analytics</li>
+                                <li>Yield optimization</li>
+                                <li>Resource allocation</li>
+                                <li>Predictive modeling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Capabilities Section -->
+                <section id="capabilities" class="content-section">
+                    <div class="section-header">
+                        <h2>Core Capabilities</h2>
+                    </div>
+
+                    <div class="tabs" x-data="{ activeTab: 'personalization' }">
+                        <div class="tab-list">
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'personalization' }"
+                                    @click="activeTab = 'personalization'">
+                                Personalization
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'automation' }"
+                                    @click="activeTab = 'automation'">
+                                Automation
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'analytics' }"
+                                    @click="activeTab = 'analytics'">
+                                Analytics
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'creation' }"
+                                    @click="activeTab = 'creation'">
+                                Creation
+                            </button>
+                        </div>
+
+                        <div class="tab-content">
+                            <div x-show="activeTab === 'personalization'" class="tab-panel">
+                                <h3>Intelligent Personalization</h3>
+                                <p>SIS learns from every interaction to create increasingly personalized experiences:</p>
+                                <ul class="feature-list">
+                                    <li><strong>Behavioral Learning:</strong> Understands user preferences and patterns</li>
+                                    <li><strong>Context Awareness:</strong> Adapts responses based on current activity</li>
+                                    <li><strong>Cultural Alignment:</strong> Matches communication style to user vibes</li>
+                                    <li><strong>Predictive Suggestions:</strong> Anticipates needs before they're expressed</li>
+                                </ul>
+                            </div>
+
+                            <div x-show="activeTab === 'automation'" class="tab-panel">
+                                <h3>Smart Automation</h3>
+                                <p>Automate complex workflows and repetitive tasks across the ecosystem:</p>
+                                <ul class="feature-list">
+                                    <li><strong>DeFi Management:</strong> Automated yield optimization and rebalancing</li>
+                                    <li><strong>Content Curation:</strong> Smart filtering and recommendation systems</li>
+                                    <li><strong>Risk Management:</strong> Proactive alerts and protective actions</li>
+                                    <li><strong>Task Orchestration:</strong> Cross-platform workflow automation</li>
+                                </ul>
+                            </div>
+
+                            <div x-show="activeTab === 'analytics'" class="tab-panel">
+                                <h3>Advanced Analytics</h3>
+                                <p>Deep insights powered by machine learning and predictive modeling:</p>
+                                <ul class="feature-list">
+                                    <li><strong>Market Intelligence:</strong> Real-time trend analysis and predictions</li>
+                                    <li><strong>Performance Tracking:</strong> Comprehensive metrics and KPIs</li>
+                                    <li><strong>Sentiment Analysis:</strong> Community mood and engagement monitoring</li>
+                                    <li><strong>Opportunity Discovery:</strong> Identify optimal strategies and timing</li>
+                                </ul>
+                            </div>
+
+                            <div x-show="activeTab === 'creation'" class="tab-panel">
+                                <h3>Content Creation</h3>
+                                <p>AI-powered creative tools for generating unique content:</p>
+                                <ul class="feature-list">
+                                    <li><strong>Visual Generation:</strong> Custom avatars, NFTs, and artwork</li>
+                                    <li><strong>Text Creation:</strong> Articles, social posts, and descriptions</li>
+                                    <li><strong>Music & Audio:</strong> Personalized soundtracks and effects</li>
+                                    <li><strong>3D Modeling:</strong> Metaverse assets and environments</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Technology Stack Section -->
+                <section id="technology" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>Technology Stack</h2>
+                        <p class="section-subtitle">
+                            Cutting-edge AI infrastructure powering intelligent experiences
+                        </p>
+                    </div>
+
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <h3>🧠 Machine Learning</h3>
+                            <ul>
+                                <li>GPT-4 language models</li>
+                                <li>Custom trained embeddings</li>
+                                <li>Reinforcement learning</li>
+                                <li>Neural architecture search</li>
+                            </ul>
+                        </div>
+
+                        <div class="tech-card">
+                            <h3>⚡ Infrastructure</h3>
+                            <ul>
+                                <li>Distributed computing</li>
+                                <li>Edge deployment</li>
+                                <li>Real-time processing</li>
+                                <li>Scalable architecture</li>
+                            </ul>
+                        </div>
+
+                        <div class="tech-card">
+                            <h3>🔒 Privacy & Security</h3>
+                            <ul>
+                                <li>Federated learning</li>
+                                <li>Homomorphic encryption</li>
+                                <li>Zero-knowledge proofs</li>
+                                <li>Differential privacy</li>
+                            </ul>
+                        </div>
+
+                        <div class="tech-card">
+                            <h3>🔗 Integration</h3>
+                            <ul>
+                                <li>GraphQL APIs</li>
+                                <li>WebSocket streams</li>
+                                <li>Blockchain oracles</li>
+                                <li>IPFS storage</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Use Cases Section -->
+                <section id="use-cases" class="content-section">
+                    <div class="section-header">
+                        <h2>Use Cases</h2>
+                    </div>
+
+                    <div class="use-cases-grid">
+                        <div class="use-case-card">
+                            <div class="use-case-icon">💬</div>
+                            <h3>Conversational AI</h3>
+                            <p>Natural language interfaces for complex Web3 operations, making blockchain accessible to everyone.</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon">🎯</div>
+                            <h3>Predictive Analytics</h3>
+                            <p>Forecast market movements, user behavior, and optimal strategies with high accuracy.</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon">🎨</div>
+                            <h3>Generative Content</h3>
+                            <p>Create unique NFTs, avatars, and digital assets tailored to individual preferences.</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon">🤝</div>
+                            <h3>Social Matching</h3>
+                            <p>Connect users with compatible communities, collaborators, and investment partners.</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon">📈</div>
+                            <h3>Portfolio Management</h3>
+                            <p>Intelligent asset allocation and rebalancing based on risk profile and market conditions.</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon">🛡️</div>
+                            <h3>Security Monitoring</h3>
+                            <p>Real-time threat detection and automated response to protect user assets and data.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Developer Section -->
+                <section id="developers" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>For Developers</h2>
+                        <p class="section-subtitle">
+                            Build on top of SIS with our comprehensive developer tools
+                        </p>
+                    </div>
+
+                    <div class="developer-features">
+                        <div class="feature-row">
+                            <div class="feature-icon">🔧</div>
+                            <div class="feature-content">
+                                <h3>SIS SDK</h3>
+                                <p>Comprehensive software development kit for integrating SIS agents into your applications.</p>
+                                <pre><code class="language-javascript">
+import { SIS } from '@properlabs/sis-sdk';
+
+const sis = new SIS({
+  apiKey: 'your-api-key',
+  agents: ['bigsis', 'bro']
+});
+
+const response = await sis.query({
+  agent: 'bro',
+  prompt: 'Generate a meme about DeFi'
+});
+                                </code></pre>
+                            </div>
+                        </div>
+
+                        <div class="feature-row">
+                            <div class="feature-icon">🔌</div>
+                            <div class="feature-content">
+                                <h3>API Access</h3>
+                                <p>RESTful and GraphQL APIs for programmatic access to all SIS capabilities.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-row">
+                            <div class="feature-icon">📚</div>
+                            <div class="feature-content">
+                                <h3>Documentation</h3>
+                                <p>Extensive guides, tutorials, and reference documentation for developers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Roadmap Section -->
+                <section id="roadmap" class="content-section">
+                    <div class="section-header">
+                        <h2>SIS Evolution Roadmap</h2>
+                    </div>
+
+                    <div class="roadmap-timeline">
+                        <div class="roadmap-item completed">
+                            <div class="roadmap-marker">✓</div>
+                            <div class="roadmap-content">
+                                <h3>Phase 1: Foundation</h3>
+                                <p>Core agent network established with basic personalization</p>
+                            </div>
+                        </div>
+
+                        <div class="roadmap-item active">
+                            <div class="roadmap-marker">→</div>
+                            <div class="roadmap-content">
+                                <h3>Phase 2: Enhancement</h3>
+                                <p>Advanced learning algorithms and cross-platform integration</p>
+                            </div>
+                        </div>
+
+                        <div class="roadmap-item">
+                            <div class="roadmap-marker">3</div>
+                            <div class="roadmap-content">
+                                <h3>Phase 3: Autonomy</h3>
+                                <p>Fully autonomous agents with self-improvement capabilities</p>
+                            </div>
+                        </div>
+
+                        <div class="roadmap-item">
+                            <div class="roadmap-marker">4</div>
+                            <div class="roadmap-content">
+                                <h3>Phase 4: Singularity</h3>
+                                <p>Collective intelligence network with emergent behaviors</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="cta-section">
+                    <div class="cta-content">
+                        <h2>Experience Intelligent Web3</h2>
+                        <p>Let SIS agents guide you through the future of decentralized technology</p>
+                        <div class="cta-buttons">
+                            <a href="#" class="btn btn-secondary">Meet the Agents</a>
+                            <a href="#" class="btn btn-outline">Developer Portal</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Page Footer -->
+                <footer class="page-footer">
+                    <nav class="footer-nav">
+                        <a href="brofit.html">
+                            <span>←</span>
+                            <span>BroFit</span>
+                        </a>
+                        <a href="bro-token.html">
+                            <span>$BRO Token</span>
+                            <span>→</span>
+                        </a>
+                    </nav>
+                </footer>
+
+                <!-- Version Footer -->
+                <footer class="version-footer">
+                    <div class="version-info">
+                        <span>Version 1.0.0</span>
+                        <span>•</span>
+                        <span>Last updated: 2024</span>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Table of Contents -->
+            <aside class="toc" x-show="tocOpen">
+                <div class="toc-header">
+                    <h3>On This Page</h3>
+                    <button @click="tocOpen = !tocOpen" class="toc-toggle">×</button>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#agents">Agent Network</a></li>
+                        <li><a href="#capabilities">Core Capabilities</a></li>
+                        <li><a href="#technology">Technology Stack</a></li>
+                        <li><a href="#use-cases">Use Cases</a></li>
+                        <li><a href="#developers">For Developers</a></li>
+                        <li><a href="#roadmap">Evolution Roadmap</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </main>
+    </div>
+
+    <style>
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-6);
+        margin-top: var(--space-6);
+    }
+
+    .tech-card {
+        background: var(--color-white);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        box-shadow: var(--shadow-md);
+    }
+
+    .tech-card h3 {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-4);
+        color: var(--color-primary);
+    }
+
+    .tech-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .tech-card li {
+        padding: var(--space-2) 0;
+        color: var(--color-gray-700);
+        border-bottom: 1px solid var(--color-gray-100);
+    }
+
+    .tech-card li:last-child {
+        border-bottom: none;
+    }
+
+    .use-cases-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-6);
+        margin-top: var(--space-6);
+    }
+
+    .use-case-card {
+        background: var(--color-white);
+        border: 2px solid var(--color-gray-200);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        text-align: center;
+        transition: all var(--transition-base);
+    }
+
+    .use-case-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+    }
+
+    .use-case-icon {
+        font-size: var(--text-4xl);
+        margin-bottom: var(--space-3);
+    }
+
+    .use-case-card h3 {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-3);
+    }
+
+    .use-case-card p {
+        color: var(--color-gray-700);
+        line-height: var(--leading-relaxed);
+    }
+
+    .developer-features {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .roadmap-timeline {
+        position: relative;
+        padding-left: var(--space-12);
+        margin-top: var(--space-8);
+    }
+
+    .roadmap-timeline::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--color-gray-300);
+    }
+
+    .roadmap-item {
+        position: relative;
+        padding-bottom: var(--space-8);
+    }
+
+    .roadmap-marker {
+        position: absolute;
+        left: -32px;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--color-white);
+        border: 2px solid var(--color-gray-300);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .roadmap-item.completed .roadmap-marker {
+        background: var(--color-success);
+        color: var(--color-white);
+        border-color: var(--color-success);
+    }
+
+    .roadmap-item.active .roadmap-marker {
+        background: var(--color-primary);
+        color: var(--color-white);
+        border-color: var(--color-primary);
+    }
+
+    .roadmap-content h3 {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-2);
+    }
+
+    .roadmap-content p {
+        color: var(--color-gray-700);
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        margin-top: var(--space-4);
+    }
+
+    .feature-list li {
+        padding: var(--space-3) 0;
+        border-bottom: 1px solid var(--color-gray-200);
+    }
+
+    .feature-list li:last-child {
+        border-bottom: none;
+    }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

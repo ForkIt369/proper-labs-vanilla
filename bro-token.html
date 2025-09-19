@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$BRO Token - Ecosystem Currency | Proper Labs</title>
+    <link rel="stylesheet" href="css/ddv-codex.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+</head>
+<body x-data="{ sidebarOpen: true, searchQuery: '', tocOpen: true }">
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" :class="{ 'collapsed': !sidebarOpen }">
+            <div class="sidebar-header">
+                <h2>Proper Labs</h2>
+                <button @click="sidebarOpen = !sidebarOpen" class="sidebar-toggle">
+                    <span x-show="sidebarOpen">◀</span>
+                    <span x-show="!sidebarOpen">▶</span>
+                </button>
+            </div>
+
+            <!-- Search -->
+            <div class="sidebar-search" x-show="sidebarOpen">
+                <input type="text"
+                       x-model="searchQuery"
+                       placeholder="Search documentation..."
+                       class="search-input">
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav" x-show="sidebarOpen">
+                <div class="nav-section">
+                    <h3>Overview</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="who-we-are.html" class="nav-link">Who We Are</a></li>
+                        <li><a href="ecosystem.html" class="nav-link">Ecosystem Overview</a></li>
+                        <li><a href="value-loop.html" class="nav-link">How It Works</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Ecosystem</h3>
+                    <ul>
+                        <li><a href="broverse.html" class="nav-link">Broverse</a></li>
+                        <li><a href="verseid.html" class="nav-link">VerseID</a></li>
+                        <li><a href="brofit.html" class="nav-link">BroFit</a></li>
+                        <li><a href="sis.html" class="nav-link">SIS (AI)</a></li>
+                        <li><a href="bro-token.html" class="nav-link active">$BRO Token</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Strategy</h3>
+                    <ul>
+                        <li><a href="revenue.html" class="nav-link">Revenue Models</a></li>
+                        <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+                        <li><a href="culture.html" class="nav-link">Culture</a></li>
+                        <li><a href="vision.html" class="nav-link">Vision</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <a href="#">Ecosystem</a>
+                    <span>/</span>
+                    <span>$BRO Token</span>
+                </nav>
+
+                <!-- Hero Section -->
+                <section class="hero-gradient">
+                    <div class="hero-content">
+                        <div class="hero-badge">Ecosystem Currency</div>
+                        <h1 class="hero-title">
+                            <span class="gradient-text">$BRO Token</span>
+                        </h1>
+                        <p class="hero-lead">
+                            The unifying currency powering transactions, governance, and rewards across the entire Proper Labs ecosystem.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <span class="stat-value">1B</span>
+                                <span class="stat-label">Total Supply</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">15+</span>
+                                <span class="stat-label">Use Cases</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">Q2 2024</span>
+                                <span class="stat-label">Launch Date</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Overview Section -->
+                <section id="overview" class="content-section">
+                    <div class="section-header">
+                        <h2>The Heart of Our Economy</h2>
+                        <p class="section-subtitle">
+                            $BRO is more than a token - it's the lifeblood of participation, contribution, and value creation
+                        </p>
+                    </div>
+
+                    <div class="callout callout-info">
+                        <h4>Key Innovation</h4>
+                        <p>$BRO creates a closed-loop economy where every action generates value, and every contribution is rewarded, fostering sustainable ecosystem growth.</p>
+                    </div>
+
+                    <p>The $BRO token serves as the primary medium of exchange within Proper Labs, enabling seamless transactions, incentivizing participation, and aligning all stakeholders toward collective success. Through innovative tokenomics and multiple utility layers, $BRO creates a self-sustaining economic model.</p>
+                </section>
+
+                <!-- Tokenomics Section -->
+                <section id="tokenomics" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>Tokenomics</h2>
+                        <p class="section-subtitle">
+                            Carefully designed distribution for long-term sustainability
+                        </p>
+                    </div>
+
+                    <div class="tokenomics-chart">
+                        <div class="token-distribution">
+                            <h3>Token Distribution</h3>
+                            <div class="distribution-items">
+                                <div class="distribution-item">
+                                    <div class="distribution-bar" style="width: 30%; background: var(--color-primary);"></div>
+                                    <div class="distribution-label">
+                                        <span>Community Rewards</span>
+                                        <strong>30%</strong>
+                                    </div>
+                                </div>
+                                <div class="distribution-item">
+                                    <div class="distribution-bar" style="width: 25%; background: var(--color-accent);"></div>
+                                    <div class="distribution-label">
+                                        <span>Ecosystem Development</span>
+                                        <strong>25%</strong>
+                                    </div>
+                                </div>
+                                <div class="distribution-item">
+                                    <div class="distribution-bar" style="width: 20%; background: var(--color-success);"></div>
+                                    <div class="distribution-label">
+                                        <span>Treasury</span>
+                                        <strong>20%</strong>
+                                    </div>
+                                </div>
+                                <div class="distribution-item">
+                                    <div class="distribution-bar" style="width: 15%; background: var(--color-warning);"></div>
+                                    <div class="distribution-label">
+                                        <span>Team & Advisors</span>
+                                        <strong>15%</strong>
+                                    </div>
+                                </div>
+                                <div class="distribution-item">
+                                    <div class="distribution-bar" style="width: 10%; background: var(--color-info);"></div>
+                                    <div class="distribution-label">
+                                        <span>Public Sale</span>
+                                        <strong>10%</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vesting-schedule">
+                            <h3>Vesting Schedule</h3>
+                            <table class="metrics-table">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Cliff</th>
+                                        <th>Vesting</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Community Rewards</td>
+                                        <td>None</td>
+                                        <td>48 months linear</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ecosystem Development</td>
+                                        <td>3 months</td>
+                                        <td>36 months linear</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Team & Advisors</td>
+                                        <td>12 months</td>
+                                        <td>24 months linear</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Public Sale</td>
+                                        <td>None</td>
+                                        <td>25% TGE, 75% over 6 months</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Utility Section -->
+                <section id="utility" class="content-section">
+                    <div class="section-header">
+                        <h2>Token Utility</h2>
+                        <p class="section-subtitle">
+                            Multiple layers of utility drive demand and create sustainable value
+                        </p>
+                    </div>
+
+                    <div class="tabs" x-data="{ activeTab: 'transactions' }">
+                        <div class="tab-list">
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'transactions' }"
+                                    @click="activeTab = 'transactions'">
+                                Transactions
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'governance' }"
+                                    @click="activeTab = 'governance'">
+                                Governance
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'staking' }"
+                                    @click="activeTab = 'staking'">
+                                Staking
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'rewards' }"
+                                    @click="activeTab = 'rewards'">
+                                Rewards
+                            </button>
+                        </div>
+
+                        <div class="tab-content">
+                            <div x-show="activeTab === 'transactions'" class="tab-panel">
+                                <h3>Transaction Medium</h3>
+                                <div class="utility-grid">
+                                    <div class="utility-card">
+                                        <h4>🛒 Marketplace Purchases</h4>
+                                        <p>Buy NFTs, digital assets, and premium content</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>💱 Trading Fees</h4>
+                                        <p>Reduced fees when paying with $BRO</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>🎮 In-App Purchases</h4>
+                                        <p>Unlock features, boosts, and premium experiences</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>🌉 Cross-Chain Bridges</h4>
+                                        <p>Pay for bridge fees and gas optimization</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-show="activeTab === 'governance'" class="tab-panel">
+                                <h3>Governance Rights</h3>
+                                <div class="utility-grid">
+                                    <div class="utility-card">
+                                        <h4>🗳️ Protocol Voting</h4>
+                                        <p>Vote on key protocol decisions and upgrades</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>📋 Proposal Creation</h4>
+                                        <p>Submit governance proposals with sufficient stake</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>💰 Treasury Management</h4>
+                                        <p>Participate in treasury allocation decisions</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>🎯 Feature Prioritization</h4>
+                                        <p>Influence roadmap and development priorities</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-show="activeTab === 'staking'" class="tab-panel">
+                                <h3>Staking Benefits</h3>
+                                <div class="utility-grid">
+                                    <div class="utility-card">
+                                        <h4>📈 Yield Generation</h4>
+                                        <p>Earn passive income through staking rewards</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>🎖️ Tier Benefits</h4>
+                                        <p>Unlock VIP tiers with exclusive perks</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>⚡ Boosted APY</h4>
+                                        <p>Higher yields in BroFit vaults</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>🔒 Liquidity Mining</h4>
+                                        <p>Provide liquidity and earn enhanced rewards</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-show="activeTab === 'rewards'" class="tab-panel">
+                                <h3>Reward Mechanisms</h3>
+                                <div class="utility-grid">
+                                    <div class="utility-card">
+                                        <h4>🏆 Achievement Rewards</h4>
+                                        <p>Earn $BRO for completing milestones</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>👥 Referral Bonuses</h4>
+                                        <p>Get rewards for bringing new users</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>🎨 Creator Incentives</h4>
+                                        <p>Monetize content and contributions</p>
+                                    </div>
+                                    <div class="utility-card">
+                                        <h4>🎮 Play-to-Earn</h4>
+                                        <p>Earn through gameplay and engagement</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Economic Model Section -->
+                <section id="economics" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>Economic Model</h2>
+                        <p class="section-subtitle">
+                            Sustainable value creation through multiple revenue streams
+                        </p>
+                    </div>
+
+                    <div class="economics-grid">
+                        <div class="economics-card">
+                            <h3>Value Accrual</h3>
+                            <ul>
+                                <li>Protocol fees buy back and burn $BRO</li>
+                                <li>Revenue sharing with stakers</li>
+                                <li>Treasury growth compounds value</li>
+                                <li>Network effects increase demand</li>
+                            </ul>
+                        </div>
+
+                        <div class="economics-card">
+                            <h3>Deflationary Mechanisms</h3>
+                            <ul>
+                                <li>Transaction fee burns (0.5%)</li>
+                                <li>Quarterly buyback program</li>
+                                <li>Gamification sink mechanics</li>
+                                <li>NFT minting burns</li>
+                            </ul>
+                        </div>
+
+                        <div class="economics-card">
+                            <h3>Supply Controls</h3>
+                            <ul>
+                                <li>Maximum supply cap (1B tokens)</li>
+                                <li>Controlled emission schedule</li>
+                                <li>Vesting prevents dumps</li>
+                                <li>Liquidity locks ensure stability</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Integration Points Section -->
+                <section id="integration" class="content-section">
+                    <div class="section-header">
+                        <h2>Ecosystem Integration</h2>
+                    </div>
+
+                    <div class="integration-flow">
+                        <div class="flow-item">
+                            <div class="flow-icon">🌐</div>
+                            <h3>Broverse</h3>
+                            <p>Social transactions, tipping, content monetization</p>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item">
+                            <div class="flow-icon">🆔</div>
+                            <h3>VerseID</h3>
+                            <p>Identity verification fees, reputation staking</p>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item">
+                            <div class="flow-icon">💰</div>
+                            <h3>BroFit</h3>
+                            <p>Vault deposits, yield boosts, performance fees</p>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item">
+                            <div class="flow-icon">🤖</div>
+                            <h3>SIS</h3>
+                            <p>AI service payments, data marketplace</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Roadmap Section -->
+                <section id="roadmap" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>Token Launch Roadmap</h2>
+                    </div>
+
+                    <div class="roadmap-phases">
+                        <div class="phase-card active">
+                            <div class="phase-header">
+                                <span class="phase-number">Phase 1</span>
+                                <h3>Pre-Launch</h3>
+                            </div>
+                            <ul>
+                                <li>Smart contract development</li>
+                                <li>Security audits</li>
+                                <li>Private sale</li>
+                                <li>Community building</li>
+                            </ul>
+                        </div>
+
+                        <div class="phase-card">
+                            <div class="phase-header">
+                                <span class="phase-number">Phase 2</span>
+                                <h3>Token Launch</h3>
+                            </div>
+                            <ul>
+                                <li>Public sale event</li>
+                                <li>DEX liquidity provision</li>
+                                <li>Staking activation</li>
+                                <li>Initial CEX listings</li>
+                            </ul>
+                        </div>
+
+                        <div class="phase-card">
+                            <div class="phase-header">
+                                <span class="phase-number">Phase 3</span>
+                                <h3>Expansion</h3>
+                            </div>
+                            <ul>
+                                <li>Major CEX listings</li>
+                                <li>Cross-chain bridges</li>
+                                <li>Partnership integrations</li>
+                                <li>Governance launch</li>
+                            </ul>
+                        </div>
+
+                        <div class="phase-card">
+                            <div class="phase-header">
+                                <span class="phase-number">Phase 4</span>
+                                <h3>Maturity</h3>
+                            </div>
+                            <ul>
+                                <li>Full decentralization</li>
+                                <li>DAO transition</li>
+                                <li>Revenue sharing active</li>
+                                <li>Global adoption</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="cta-section">
+                    <div class="cta-content">
+                        <h2>Join the $BRO Revolution</h2>
+                        <p>Be part of the economic engine powering the future of Web3</p>
+                        <div class="cta-buttons">
+                            <a href="#" class="btn btn-secondary">Buy $BRO</a>
+                            <a href="#" class="btn btn-outline">Stake & Earn</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Page Footer -->
+                <footer class="page-footer">
+                    <nav class="footer-nav">
+                        <a href="sis.html">
+                            <span>←</span>
+                            <span>SIS (AI)</span>
+                        </a>
+                        <a href="revenue.html">
+                            <span>Revenue Models</span>
+                            <span>→</span>
+                        </a>
+                    </nav>
+                </footer>
+
+                <!-- Version Footer -->
+                <footer class="version-footer">
+                    <div class="version-info">
+                        <span>Version 1.0.0</span>
+                        <span>•</span>
+                        <span>Last updated: 2024</span>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Table of Contents -->
+            <aside class="toc" x-show="tocOpen">
+                <div class="toc-header">
+                    <h3>On This Page</h3>
+                    <button @click="tocOpen = !tocOpen" class="toc-toggle">×</button>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#tokenomics">Tokenomics</a></li>
+                        <li><a href="#utility">Token Utility</a></li>
+                        <li><a href="#economics">Economic Model</a></li>
+                        <li><a href="#integration">Ecosystem Integration</a></li>
+                        <li><a href="#roadmap">Launch Roadmap</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </main>
+    </div>
+
+    <style>
+    .tokenomics-chart {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: var(--space-8);
+        margin-top: var(--space-6);
+    }
+
+    .distribution-items {
+        margin-top: var(--space-4);
+    }
+
+    .distribution-item {
+        margin-bottom: var(--space-4);
+    }
+
+    .distribution-bar {
+        height: 30px;
+        border-radius: var(--radius-md);
+        margin-bottom: var(--space-2);
+    }
+
+    .distribution-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: var(--text-sm);
+    }
+
+    .utility-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-4);
+        margin-top: var(--space-4);
+    }
+
+    .utility-card {
+        background: var(--color-white);
+        border: 1px solid var(--color-gray-200);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4);
+        transition: all var(--transition-base);
+    }
+
+    .utility-card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+    }
+
+    .utility-card h4 {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-2);
+    }
+
+    .utility-card p {
+        font-size: var(--text-sm);
+        color: var(--color-gray-600);
+    }
+
+    .economics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-6);
+        margin-top: var(--space-6);
+    }
+
+    .economics-card {
+        background: var(--color-white);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        box-shadow: var(--shadow-md);
+    }
+
+    .economics-card h3 {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-4);
+        color: var(--color-primary);
+    }
+
+    .economics-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .economics-card li {
+        padding: var(--space-2) 0;
+        padding-left: var(--space-6);
+        position: relative;
+        border-bottom: 1px solid var(--color-gray-100);
+    }
+
+    .economics-card li:last-child {
+        border-bottom: none;
+    }
+
+    .economics-card li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--color-success);
+    }
+
+    .integration-flow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--space-4);
+        margin-top: var(--space-6);
+        padding: var(--space-8);
+        background: var(--color-gray-50);
+        border-radius: var(--radius-2xl);
+    }
+
+    .flow-item {
+        flex: 1;
+        min-width: 150px;
+        text-align: center;
+    }
+
+    .flow-icon {
+        font-size: var(--text-4xl);
+        margin-bottom: var(--space-3);
+    }
+
+    .flow-item h3 {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-2);
+    }
+
+    .flow-item p {
+        font-size: var(--text-sm);
+        color: var(--color-gray-600);
+    }
+
+    .flow-arrow {
+        font-size: var(--text-2xl);
+        color: var(--color-primary);
+        flex-shrink: 0;
+    }
+
+    .roadmap-phases {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-6);
+        margin-top: var(--space-6);
+    }
+
+    .phase-card {
+        background: var(--color-white);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        border: 2px solid var(--color-gray-200);
+        transition: all var(--transition-base);
+    }
+
+    .phase-card.active {
+        border-color: var(--color-primary);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .phase-header {
+        margin-bottom: var(--space-4);
+    }
+
+    .phase-number {
+        display: inline-block;
+        padding: var(--space-1) var(--space-3);
+        background: var(--color-primary);
+        color: var(--color-white);
+        border-radius: var(--radius-full);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: var(--tracking-wider);
+        margin-bottom: var(--space-2);
+    }
+
+    .phase-card h3 {
+        font-size: var(--text-xl);
+        margin-top: var(--space-2);
+    }
+
+    .phase-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .phase-card li {
+        padding: var(--space-2) 0;
+        padding-left: var(--space-6);
+        position: relative;
+    }
+
+    .phase-card li::before {
+        content: '•';
+        position: absolute;
+        left: var(--space-2);
+        color: var(--color-primary);
+    }
+
+    @media (max-width: 768px) {
+        .integration-flow {
+            flex-direction: column;
+        }
+
+        .flow-arrow {
+            transform: rotate(90deg);
+        }
+    }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

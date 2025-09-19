@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerseID - Proper Labs</title>
+    <link rel="stylesheet" href="css/ddv-codex.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+</head>
+<body x-data="{ sidebarOpen: true, activeTab: 'consumer' }">
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" :class="{ 'collapsed': !sidebarOpen }">
+            <div class="sidebar-header">
+                <h2>Proper Labs</h2>
+                <button @click="sidebarOpen = !sidebarOpen" class="sidebar-toggle">
+                    <span x-show="sidebarOpen">◀</span>
+                    <span x-show="!sidebarOpen">▶</span>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav" x-show="sidebarOpen">
+                <div class="nav-section">
+                    <h3>Overview</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="who-we-are.html" class="nav-link">Who We Are</a></li>
+                        <li><a href="ecosystem.html" class="nav-link">Ecosystem</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Ecosystem</h3>
+                    <ul>
+                        <li><a href="broverse.html" class="nav-link">Broverse</a></li>
+                        <li><a href="verseid.html" class="nav-link active">VerseID</a></li>
+                        <li><a href="brofit.html" class="nav-link">Brofit</a></li>
+                        <li><a href="sis.html" class="nav-link">SIS (AI)</a></li>
+                        <li><a href="bro-token.html" class="nav-link">$BRO Token</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Strategy</h3>
+                    <ul>
+                        <li><a href="revenue.html" class="nav-link">Revenue Models</a></li>
+                        <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+                        <li><a href="culture.html" class="nav-link">Culture</a></li>
+                        <li><a href="vision.html" class="nav-link">Vision</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Page Header with Hero Section -->
+                <header class="page-header hero-gradient" style="background: linear-gradient(135deg, var(--color-bigsis), var(--color-lilsis));">
+                    <div class="hero-content">
+                        <div class="hero-badge">IDENTITY PROTOCOL</div>
+                        <h1 class="hero-title gradient-text">VerseID</h1>
+                        <p class="hero-lead">The identity and reputation protocol transforming user actions into verifiable data, portable reputation, and tangible value.</p>
+
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <span class="stat-value">3</span>
+                                <span class="stat-label">Core Units</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">1M+</span>
+                                <span class="stat-label">Target Users</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">99.9%</span>
+                                <span class="stat-label">Bot Detection</span>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Core Architecture Section -->
+                <section id="architecture" class="content-section">
+                    <div class="section-header">
+                        <h2>Core Architecture</h2>
+                        <p class="section-subtitle">A persistent memory graph aggregating contributions into an evolving reputation footprint</p>
+                    </div>
+
+                    <div class="architecture-grid">
+                        <div class="arch-card bits-card">
+                            <div class="arch-icon">⚡</div>
+                            <h3>BITS</h3>
+                            <span class="arch-subtitle">Daily Actions & Utility Credits</span>
+                            <ul class="arch-features">
+                                <li>Represent routine participation and engagement</li>
+                                <li>Accumulate from quests, interactions, contributions</li>
+                                <li>Form the quantitative base of reputation</li>
+                            </ul>
+                        </div>
+
+                        <div class="arch-card beats-card">
+                            <div class="arch-icon">🏆</div>
+                            <h3>BEATS</h3>
+                            <span class="arch-subtitle">Major Contributions & Reputation</span>
+                            <ul class="arch-features">
+                                <li>Recognize significant achievements and milestones</li>
+                                <li>Quality indicators that enhance reputation multipliers</li>
+                                <li>Drive tier progression and unlock exclusive benefits</li>
+                            </ul>
+                        </div>
+
+                        <div class="arch-card bro-card">
+                            <div class="arch-icon">💎</div>
+                            <h3>$BRO</h3>
+                            <span class="arch-subtitle">Value Token</span>
+                            <ul class="arch-features">
+                                <li>Denominates liquidity, rewards, and payouts</li>
+                                <li>Unifies economic activity across ecosystem</li>
+                                <li>Creates direct link between reputation and value</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flywheel-section">
+                        <h3>The Closed-Loop Flywheel</h3>
+                        <div class="flywheel-diagram">
+                            <div class="flywheel-step">Contribute</div>
+                            <div class="flywheel-arrow">→</div>
+                            <div class="flywheel-step">BITS</div>
+                            <div class="flywheel-arrow">→</div>
+                            <div class="flywheel-step">BEATS</div>
+                            <div class="flywheel-arrow">→</div>
+                            <div class="flywheel-step">$BRO</div>
+                            <div class="flywheel-arrow">→</div>
+                            <div class="flywheel-step">VerseID</div>
+                            <div class="flywheel-arrow">→</div>
+                            <div class="flywheel-step">Repeat</div>
+                        </div>
+                        <p class="flywheel-description">A self-reinforcing cycle where every action strengthens your identity and increases your earning potential.</p>
+                    </div>
+                </section>
+
+                <!-- Technical Implementation -->
+                <section id="technical" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>Technical Implementation</h2>
+                        <p class="section-subtitle">Progressive decentralization with enterprise-grade reliability</p>
+                    </div>
+
+                    <div class="implementation-phases">
+                        <div class="phase-card">
+                            <div class="phase-number">Phase 1</div>
+                            <h3>Off-Chain First</h3>
+                            <ul>
+                                <li>Ensures scalability and speed</li>
+                                <li>Seamless partner integration</li>
+                                <li>Rapid iteration and improvement</li>
+                                <li>Cost-effective operations</li>
+                            </ul>
+                        </div>
+
+                        <div class="phase-card">
+                            <div class="phase-number">Phase 2</div>
+                            <h3>On-Chain Extension</h3>
+                            <ul>
+                                <li>Soulbound token implementation</li>
+                                <li>Immutability and interoperability</li>
+                                <li>Cross-chain reputation portability</li>
+                                <li>Decentralized verification</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="vibe-oracle">
+                        <h3>🛡️ The Vibe Oracle</h3>
+                        <p>A dedicated verification layer ensuring authenticity</p>
+                        <div class="oracle-features">
+                            <div class="oracle-feature">
+                                <span class="oracle-icon">✓</span>
+                                <span>Ensures authenticity of all actions</span>
+                            </div>
+                            <div class="oracle-feature">
+                                <span class="oracle-icon">✓</span>
+                                <span>Removes bots and sybil attacks</span>
+                            </div>
+                            <div class="oracle-feature">
+                                <span class="oracle-icon">✓</span>
+                                <span>Validates genuine human activity</span>
+                            </div>
+                            <div class="oracle-feature">
+                                <span class="oracle-icon">✓</span>
+                                <span>Creates trust in rewards and benchmarks</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Market Fit -->
+                <section id="market-fit" class="content-section">
+                    <div class="section-header">
+                        <h2>Market Fit</h2>
+                        <p class="section-subtitle">Serving both consumers and enterprises with unique value propositions</p>
+                    </div>
+
+                    <div class="tabs" x-data="{ activeTab: 'consumer' }">
+                        <div class="tab-list">
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'consumer' }"
+                                    @click="activeTab = 'consumer'">
+                                Consumer Benefits
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'enterprise' }"
+                                    @click="activeTab = 'enterprise'">
+                                Enterprise Benefits
+                            </button>
+                        </div>
+
+                        <div class="tab-content">
+                            <div x-show="activeTab === 'consumer'" class="tab-panel">
+                                <div class="benefits-grid">
+                                    <div class="benefit-card">
+                                        <div class="benefit-icon">🎮</div>
+                                        <h3>Gamified Progression</h3>
+                                        <p>Visible growth and achievement tracking with meaningful milestones and rewards.</p>
+                                    </div>
+                                    <div class="benefit-card">
+                                        <div class="benefit-icon">🌍</div>
+                                        <h3>Portable Recognition</h3>
+                                        <p>Your reputation follows you everywhere, never starting from zero again.</p>
+                                    </div>
+                                    <div class="benefit-card">
+                                        <div class="benefit-icon">💰</div>
+                                        <h3>Financial Rewards</h3>
+                                        <p>Direct link between contributions and earnings through reputation multipliers.</p>
+                                    </div>
+                                    <div class="benefit-card">
+                                        <div class="benefit-icon">👑</div>
+                                        <h3>Community Status</h3>
+                                        <p>Tiers and badges that actually mean something and unlock real benefits.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-show="activeTab === 'enterprise'" class="tab-panel">
+                                <div class="benefits-grid">
+                                    <div class="benefit-card">
+                                        <div class="benefit-icon">🛡️</div>
+                                        <h3>Anti-Bot Verification</h3>
+                                        <p>Only real humans guaranteed through multi-layer verification systems.</p>
+                                    </div>
+                                    <div class="benefit-card">
+                                        <div class="benefit-icon">📊</div>
+                                        <h3>Benchmark Intelligence</h3>
+                                        <p>Data-driven user acquisition metrics and performance analytics.</p>
+                                    </div>
+                                    <div class="benefit-card">
+                                        <div class="benefit-icon">🔌</div>
+                                        <h3>SaaS-Ready Identity</h3>
+                                        <p>Plug-and-play reputation system with simple API integration.</p>
+                                    </div>
+                                    <div class="benefit-card">
+                                        <div class="benefit-icon">📈</div>
+                                        <h3>CPVA Metrics</h3>
+                                        <p>Cost-per-verified-action tracking for true ROI measurement.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Competitive Advantages -->
+                <section id="advantages" class="content-section">
+                    <div class="section-header">
+                        <h2>Competitive Advantages</h2>
+                        <p class="section-subtitle">Why VerseID outperforms other identity protocols</p>
+                    </div>
+
+                    <div class="comparison-table-wrapper">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th class="highlight">VerseID</th>
+                                    <th>Competitors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Portable Reputation</strong></td>
+                                    <td class="check">✅ Full ecosystem portability</td>
+                                    <td class="cross">❌ Platform-specific silos</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bot Protection</strong></td>
+                                    <td class="check">✅ Vibe Oracle multi-layer</td>
+                                    <td class="partial">⚠️ Basic verification only</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Financial Integration</strong></td>
+                                    <td class="check">✅ Direct yield multipliers</td>
+                                    <td class="cross">❌ Separate systems</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>AI Data Structure</strong></td>
+                                    <td class="check">✅ Training-ready datasets</td>
+                                    <td class="cross">❌ Unstructured data</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Community Focus</strong></td>
+                                    <td class="check">✅ Culture-first approach</td>
+                                    <td class="cross">❌ Transaction-first model</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Revenue Model</strong></td>
+                                    <td class="check">✅ Multiple revenue streams</td>
+                                    <td class="partial">⚠️ Token-only model</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Roadmap -->
+                <section id="roadmap" class="content-section dark-section">
+                    <div class="section-header">
+                        <h2>Development Roadmap</h2>
+                        <p class="section-subtitle">From foundation to dominance in Web3 identity</p>
+                    </div>
+
+                    <div class="roadmap-timeline">
+                        <div class="roadmap-item completed">
+                            <div class="roadmap-marker">✅</div>
+                            <div class="roadmap-content">
+                                <h3>Phase 1: Foundation</h3>
+                                <span class="roadmap-date">Current</span>
+                                <ul>
+                                    <li>Core identity system live</li>
+                                    <li>BITS/BEATS tracking active</li>
+                                    <li>Basic tier progression</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="roadmap-item active">
+                            <div class="roadmap-marker">🚧</div>
+                            <div class="roadmap-content">
+                                <h3>Phase 2: Enhancement</h3>
+                                <span class="roadmap-date">Q1 2024</span>
+                                <ul>
+                                    <li>Vibe Oracle v2 deployment</li>
+                                    <li>Advanced reputation algorithms</li>
+                                    <li>Enterprise dashboard launch</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="roadmap-item">
+                            <div class="roadmap-marker">📅</div>
+                            <div class="roadmap-content">
+                                <h3>Phase 3: Expansion</h3>
+                                <span class="roadmap-date">Q2 2024</span>
+                                <ul>
+                                    <li>On-chain soulbound tokens</li>
+                                    <li>Cross-chain bridges</li>
+                                    <li>AI dataset marketplace</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="roadmap-item">
+                            <div class="roadmap-marker">🎯</div>
+                            <div class="roadmap-content">
+                                <h3>Phase 4: Dominance</h3>
+                                <span class="roadmap-date">Q3 2024</span>
+                                <ul>
+                                    <li>Industry standard for Web3 identity</li>
+                                    <li>10M+ verified users</li>
+                                    <li>$10M+ ARR from data sales</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Metrics -->
+                <section id="metrics" class="content-section">
+                    <div class="section-header">
+                        <h2>Key Metrics</h2>
+                        <p class="section-subtitle">Tracking our progress towards market leadership</p>
+                    </div>
+
+                    <div class="metrics-dashboard">
+                        <div class="metric-card">
+                            <span class="metric-label">Verified Users</span>
+                            <span class="metric-value">1M+</span>
+                            <span class="metric-target">Target: 10M by 2025</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Daily Actions</span>
+                            <span class="metric-value">10M+</span>
+                            <span class="metric-target">BITS generated per day</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Reputation Score</span>
+                            <span class="metric-value">1,000+</span>
+                            <span class="metric-target">Average user BEATS</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Bot Detection</span>
+                            <span class="metric-value">99.9%</span>
+                            <span class="metric-target">Accuracy rate</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Enterprise Clients</span>
+                            <span class="metric-value">50+</span>
+                            <span class="metric-target">B2B integrations</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Revenue Potential</span>
+                            <span class="metric-value">$5M</span>
+                            <span class="metric-target">ARR from data sales</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="cta-section">
+                    <div class="cta-content">
+                        <h2>Build Your Portable Identity</h2>
+                        <p>Join the revolution in Web3 identity where your reputation has real value.</p>
+                        <div class="cta-buttons">
+                            <a href="#" class="btn btn-primary btn-lg">Create VerseID</a>
+                            <a href="brofit.html" class="btn btn-secondary btn-lg">Explore Brofit</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="page-footer">
+                    <div class="footer-nav">
+                        <a href="broverse.html">← Broverse</a>
+                        <a href="brofit.html">Brofit →</a>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        /* Custom styles for VerseID page */
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+            margin: var(--space-8) 0;
+        }
+
+        .arch-card {
+            background: var(--color-white);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--color-gray-200);
+            transition: all var(--transition-base);
+        }
+
+        .bits-card { border-top: 4px solid var(--color-warning); }
+        .beats-card { border-top: 4px solid var(--color-success); }
+        .bro-card { border-top: 4px solid var(--color-primary); }
+
+        .arch-icon {
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-3);
+        }
+
+        .arch-subtitle {
+            display: block;
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-4);
+        }
+
+        .arch-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .arch-features li {
+            padding: var(--space-2) 0;
+            padding-left: var(--space-6);
+            position: relative;
+            font-size: var(--text-sm);
+            line-height: var(--leading-relaxed);
+        }
+
+        .arch-features li::before {
+            content: '•';
+            position: absolute;
+            left: var(--space-2);
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+
+        /* Flywheel Diagram */
+        .flywheel-section {
+            text-align: center;
+            margin: var(--space-12) 0;
+        }
+
+        .flywheel-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-4);
+            margin: var(--space-6) 0;
+            flex-wrap: wrap;
+        }
+
+        .flywheel-step {
+            padding: var(--space-3) var(--space-6);
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+        }
+
+        .flywheel-arrow {
+            font-size: var(--text-2xl);
+            color: var(--color-gray-400);
+        }
+
+        .flywheel-description {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--color-gray-600);
+        }
+
+        /* Implementation Phases */
+        .implementation-phases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+            margin: var(--space-8) 0;
+        }
+
+        .phase-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            border: 2px solid var(--color-gray-300);
+        }
+
+        .phase-number {
+            display: inline-block;
+            padding: var(--space-2) var(--space-4);
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+        }
+
+        /* Vibe Oracle */
+        .vibe-oracle {
+            background: var(--color-white);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            margin: var(--space-8) 0;
+            text-align: center;
+            border: 2px solid var(--color-success);
+        }
+
+        .oracle-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-6);
+        }
+
+        .oracle-feature {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .oracle-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--color-success);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            font-weight: bold;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-6);
+        }
+
+        .benefit-card {
+            background: var(--color-gray-50);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            text-align: center;
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-base);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .benefit-icon {
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-3);
+        }
+
+        /* Comparison Table */
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            margin: var(--space-8) 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .comparison-table th {
+            background: var(--color-gray-100);
+            padding: var(--space-4) var(--space-6);
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table th.highlight {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .comparison-table td {
+            padding: var(--space-4) var(--space-6);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .comparison-table .check {
+            color: var(--color-success);
+            font-weight: 500;
+        }
+
+        .comparison-table .cross {
+            color: var(--color-danger);
+        }
+
+        .comparison-table .partial {
+            color: var(--color-warning);
+        }
+
+        /* Roadmap Timeline */
+        .roadmap-timeline {
+            position: relative;
+            padding: var(--space-8) 0;
+        }
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-gray-300);
+        }
+
+        .roadmap-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: var(--space-8);
+        }
+
+        .roadmap-marker {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background: var(--color-white);
+            border: 3px solid var(--color-gray-300);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .roadmap-item.completed .roadmap-marker {
+            background: var(--color-success);
+            border-color: var(--color-success);
+            color: var(--color-white);
+        }
+
+        .roadmap-item.active .roadmap-marker {
+            background: var(--color-warning);
+            border-color: var(--color-warning);
+        }
+
+        .roadmap-content {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-md);
+        }
+
+        .roadmap-date {
+            display: inline-block;
+            padding: var(--space-1) var(--space-3);
+            background: var(--color-gray-100);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-3);
+        }
+
+        /* Metrics Dashboard */
+        .metrics-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+            margin: var(--space-8) 0;
+        }
+
+        .metric-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            text-align: center;
+            border: 2px solid var(--color-gray-200);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .metric-label {
+            font-size: var(--text-sm);
+            color: var(--color-gray-600);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+        }
+
+        .metric-value {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .metric-target {
+            font-size: var(--text-xs);
+            color: var(--color-gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .flywheel-diagram {
+                flex-direction: column;
+            }
+
+            .flywheel-arrow {
+                transform: rotate(90deg);
+            }
+
+            .roadmap-timeline::before {
+                left: 20px;
+            }
+
+            .roadmap-item {
+                padding-left: 60px;
+            }
+
+            .roadmap-marker {
+                left: 4px;
+            }
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
