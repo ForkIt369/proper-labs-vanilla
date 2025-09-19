@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proper Labs Documentation</title>
+    <link rel="stylesheet" href="css/ddv-codex.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+</head>
+<body x-data="{ sidebarOpen: true, searchQuery: '', tocOpen: true }">
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" :class="{ 'collapsed': !sidebarOpen }">
+            <div class="sidebar-header">
+                <h2>Proper Labs</h2>
+                <button @click="sidebarOpen = !sidebarOpen" class="sidebar-toggle">
+                    <span x-show="sidebarOpen">◀</span>
+                    <span x-show="!sidebarOpen">▶</span>
+                </button>
+            </div>
+
+            <!-- Search -->
+            <div class="sidebar-search" x-show="sidebarOpen">
+                <input type="text"
+                       x-model="searchQuery"
+                       placeholder="Search documentation..."
+                       class="search-input">
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav" x-show="sidebarOpen">
+                <div class="nav-section">
+                    <h3>Overview</h3>
+                    <ul>
+                        <li><a href="#introduction" class="nav-link active">Introduction</a></li>
+                        <li><a href="#ecosystem" class="nav-link">Ecosystem Overview</a></li>
+                        <li><a href="#mission" class="nav-link">Mission & Values</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Projects</h3>
+                    <ul>
+                        <li>
+                            <a href="broverse.html" class="nav-link">Broverse</a>
+                            <ul class="nav-sub">
+                                <li><a href="broverse.html#overview" class="nav-link">Overview</a></li>
+                                <li><a href="broverse.html#agents" class="nav-link">AI Agents</a></li>
+                                <li><a href="broverse.html#quests" class="nav-link">Quest System</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#verseid" class="nav-link">VerseID</a></li>
+                        <li><a href="#brofit" class="nav-link">BroFit</a></li>
+                        <li><a href="#sis" class="nav-link">SIS</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Design System</h3>
+                    <ul>
+                        <li><a href="#ddv-codex" class="nav-link">DDV Codex</a></li>
+                        <li><a href="#colors" class="nav-link">Colors</a></li>
+                        <li><a href="#typography" class="nav-link">Typography</a></li>
+                        <li><a href="#components" class="nav-link">Components</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#api" class="nav-link">API Reference</a></li>
+                        <li><a href="#examples" class="nav-link">Examples</a></li>
+                        <li><a href="#support" class="nav-link">Support</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs">
+                    <a href="#">Home</a>
+                    <span>/</span>
+                    <span>Introduction</span>
+                </nav>
+
+                <!-- Page Header -->
+                <header class="page-header">
+                    <h1>Welcome to Proper Labs</h1>
+                    <p class="lead">The unified Web3 ecosystem where identity meets intelligence.</p>
+                </header>
+
+                <!-- Content Sections -->
+                <section id="introduction" class="content-section">
+                    <h2>Introduction</h2>
+                    <div class="callout callout-info">
+                        <h4>Getting Started</h4>
+                        <p>Proper Labs is building the future of decentralized identity and AI-powered experiences in Web3.</p>
+                    </div>
+
+                    <p>At the heart of Web3's evolution lies a fundamental challenge: bridging the gap between human identity and machine intelligence. Proper Labs addresses this with an integrated ecosystem that makes Web3 accessible, intelligent, and culturally vibrant.</p>
+
+                    <div class="feature-grid">
+                        <div class="feature-card agent-bigsis">
+                            <h3>VerseID</h3>
+                            <p>Universal identity protocol connecting your presence across all metaverses and platforms.</p>
+                        </div>
+                        <div class="feature-card agent-bro">
+                            <h3>Broverse</h3>
+                            <p>The cultural hub where AI agents and humans co-create the future of Web3 culture.</p>
+                        </div>
+                        <div class="feature-card agent-lilsis">
+                            <h3>BroFit</h3>
+                            <p>Revolutionary DeFi engine making complex financial strategies accessible to everyone.</p>
+                        </div>
+                        <div class="feature-card agent-cbo">
+                            <h3>SIS Intelligence</h3>
+                            <p>Advanced AI infrastructure powering personalized experiences across the ecosystem.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="ecosystem" class="content-section">
+                    <h2>Ecosystem Overview</h2>
+
+                    <div class="tabs" x-data="{ activeTab: 'architecture' }">
+                        <div class="tab-list">
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'architecture' }"
+                                    @click="activeTab = 'architecture'">
+                                Architecture
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'flow' }"
+                                    @click="activeTab = 'flow'">
+                                Data Flow
+                            </button>
+                            <button class="tab-button"
+                                    :class="{ 'active': activeTab === 'integration' }"
+                                    @click="activeTab = 'integration'">
+                                Integration
+                            </button>
+                        </div>
+
+                        <div class="tab-content">
+                            <div x-show="activeTab === 'architecture'" class="tab-panel">
+                                <h3>System Architecture</h3>
+                                <p>Proper Labs employs a modular, microservices-based architecture:</p>
+                                <pre><code class="language-javascript">
+const ProperLabs = {
+  identity: 'VerseID',     // Core identity layer
+  culture: 'Broverse',      // Cultural interaction layer
+  finance: 'BroFit',        // DeFi operations layer
+  intelligence: 'SIS',      // AI processing layer
+
+  interconnect: {
+    protocol: 'GraphQL',
+    authentication: 'JWT + Web3',
+    storage: 'IPFS + Arweave',
+    blockchain: 'Multi-chain'
+  }
+};
+                                </code></pre>
+                            </div>
+
+                            <div x-show="activeTab === 'flow'" class="tab-panel">
+                                <h3>Data Flow</h3>
+                                <p>Information flows seamlessly between ecosystem components:</p>
+                                <ol>
+                                    <li><strong>Identity Creation:</strong> Users establish their VerseID</li>
+                                    <li><strong>Agent Assignment:</strong> SIS agents personalize the experience</li>
+                                    <li><strong>Cultural Participation:</strong> Engage in Broverse activities</li>
+                                    <li><strong>Financial Operations:</strong> BroFit manages DeFi interactions</li>
+                                </ol>
+                            </div>
+
+                            <div x-show="activeTab === 'integration'" class="tab-panel">
+                                <h3>Integration Points</h3>
+                                <p>Connect with Proper Labs through multiple interfaces:</p>
+                                <ul>
+                                    <li>REST API for traditional web applications</li>
+                                    <li>GraphQL for complex data queries</li>
+                                    <li>WebSocket for real-time updates</li>
+                                    <li>Smart contract interfaces for blockchain interaction</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="mission" class="content-section">
+                    <h2>Mission & Values</h2>
+
+                    <blockquote class="quote">
+                        <p>"We're not just building technology; we're cultivating a new digital culture where AI and humans collaborate to unlock unprecedented possibilities."</p>
+                        <cite>— Proper Labs Team</cite>
+                    </blockquote>
+
+                    <h3>Core Principles</h3>
+                    <div class="principles-grid">
+                        <div class="principle">
+                            <span class="principle-number">01</span>
+                            <h4>User Sovereignty</h4>
+                            <p>Your identity, your data, your control.</p>
+                        </div>
+                        <div class="principle">
+                            <span class="principle-number">02</span>
+                            <h4>Cultural Innovation</h4>
+                            <p>Fostering creativity at the intersection of human and AI.</p>
+                        </div>
+                        <div class="principle">
+                            <span class="principle-number">03</span>
+                            <h4>Inclusive Finance</h4>
+                            <p>DeFi strategies accessible to everyone, not just experts.</p>
+                        </div>
+                        <div class="principle">
+                            <span class="principle-number">04</span>
+                            <h4>Intelligent Augmentation</h4>
+                            <p>AI that enhances, not replaces, human capability.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Version Footer -->
+                <footer class="version-footer">
+                    <div class="version-info">
+                        <span>Version 1.0.0</span>
+                        <span>•</span>
+                        <span>Last updated: 2024</span>
+                        <span>•</span>
+                        <a href="/admin.html">Admin Panel</a>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Table of Contents -->
+            <aside class="toc" x-show="tocOpen">
+                <div class="toc-header">
+                    <h3>On This Page</h3>
+                    <button @click="tocOpen = !tocOpen" class="toc-toggle">×</button>
+                </div>
+                <nav class="toc-nav">
+                    <ul>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#ecosystem">Ecosystem Overview</a>
+                            <ul>
+                                <li><a href="#architecture">System Architecture</a></li>
+                                <li><a href="#flow">Data Flow</a></li>
+                                <li><a href="#integration">Integration</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#mission">Mission & Values</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proper Labs Admin Panel</title>
+    <link rel="stylesheet" href="css/ddv-codex.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.13.5/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body x-data="adminPanel">
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-container" x-show="!isAuthenticated">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>Proper Labs Admin</h1>
+                <p class="lead">Enter password to access admin panel</p>
+            </div>
+            <form @submit.prevent="login">
+                <div class="form-group">
+                    <input type="password"
+                           x-model="password"
+                           placeholder="Admin Password"
+                           class="form-input"
+                           :class="{ 'error': loginError }"
+                           autofocus>
+                    <div x-show="loginError" class="error-message" x-text="loginError"></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span x-show="!loading">Sign In</span>
+                    <span x-show="loading">Authenticating...</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="admin-layout" x-show="isAuthenticated" x-cloak>
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <h1>Proper Labs Documentation</h1>
+                <span class="version-badge">v1.0.0</span>
+            </div>
+            <div class="header-right">
+                <button @click="saveDraft" class="btn btn-secondary">
+                    <span>💾</span> Save Draft
+                </button>
+                <button @click="publishToGithub" class="btn btn-primary">
+                    <span>🚀</span> Publish to GitHub
+                </button>
+                <button @click="logout" class="btn btn-ghost">Sign Out</button>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <!-- Sidebar File Browser -->
+            <aside class="file-browser">
+                <div class="browser-header">
+                    <h3>Files</h3>
+                    <button @click="createNewPage" class="btn btn-sm">+ New</button>
+                </div>
+                <nav class="file-tree">
+                    <div class="tree-section">
+                        <h4>Pages</h4>
+                        <ul>
+                            <template x-for="file in files" :key="file.path">
+                                <li>
+                                    <a href="#"
+                                       @click.prevent="loadFile(file)"
+                                       class="file-link"
+                                       :class="{ 'active': currentFile?.path === file.path }">
+                                        <span class="file-icon">📄</span>
+                                        <span x-text="file.name"></span>
+                                    </a>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    <div class="tree-section" x-show="drafts.length > 0">
+                        <h4>Drafts</h4>
+                        <ul>
+                            <template x-for="draft in drafts" :key="draft.id">
+                                <li>
+                                    <a href="#"
+                                       @click.prevent="loadDraft(draft)"
+                                       class="file-link draft">
+                                        <span class="file-icon">✏️</span>
+                                        <span x-text="draft.name"></span>
+                                    </a>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Main Editor Area -->
+            <main class="editor-container">
+                <!-- Editor Toolbar -->
+                <div class="editor-toolbar">
+                    <div class="toolbar-group">
+                        <button @click="insertMarkdown('**', '**')" title="Bold">
+                            <strong>B</strong>
+                        </button>
+                        <button @click="insertMarkdown('*', '*')" title="Italic">
+                            <em>I</em>
+                        </button>
+                        <button @click="insertMarkdown('`', '`')" title="Code">
+                            <code>&lt;&gt;</code>
+                        </button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button @click="insertMarkdown('\n# ', '')" title="Heading 1">H1</button>
+                        <button @click="insertMarkdown('\n## ', '')" title="Heading 2">H2</button>
+                        <button @click="insertMarkdown('\n### ', '')" title="Heading 3">H3</button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button @click="insertMarkdown('\n- ', '')" title="Bullet List">•</button>
+                        <button @click="insertMarkdown('\n1. ', '')" title="Numbered List">1.</button>
+                        <button @click="insertMarkdown('\n> ', '')" title="Quote">&gt;</button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button @click="insertAdmonition('info')" title="Info Box">ℹ️</button>
+                        <button @click="insertAdmonition('warning')" title="Warning Box">⚠️</button>
+                        <button @click="insertAdmonition('success')" title="Success Box">✅</button>
+                        <button @click="insertAdmonition('danger')" title="Danger Box">⛔</button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button @click="insertTabs" title="Insert Tabs">📑</button>
+                        <button @click="insertCodeBlock" title="Code Block">{ }</button>
+                        <button @click="insertTable" title="Insert Table">⊞</button>
+                    </div>
+                </div>
+
+                <!-- Split View -->
+                <div class="split-view">
+                    <!-- Editor -->
+                    <div class="editor-pane">
+                        <div class="pane-header">
+                            <h3>Editor</h3>
+                            <input type="text"
+                                   x-model="currentFile.name"
+                                   class="file-name-input"
+                                   placeholder="filename.md">
+                        </div>
+                        <textarea
+                            x-model="content"
+                            @input="updatePreview"
+                            class="markdown-editor"
+                            placeholder="Start writing your documentation in Markdown..."
+                            spellcheck="false"></textarea>
+                    </div>
+
+                    <!-- Preview -->
+                    <div class="preview-pane">
+                        <div class="pane-header">
+                            <h3>Preview</h3>
+                            <button @click="refreshPreview" class="btn btn-sm">↻</button>
+                        </div>
+                        <div class="markdown-preview" x-html="preview"></div>
+                    </div>
+                </div>
+
+                <!-- Status Bar -->
+                <div class="status-bar">
+                    <div class="status-left">
+                        <span x-show="currentFile">
+                            Editing: <strong x-text="currentFile?.path || 'Untitled'"></strong>
+                        </span>
+                        <span x-show="isDirty" class="status-dirty">• Modified</span>
+                    </div>
+                    <div class="status-right">
+                        <span x-text="wordCount"></span> words
+                        <span>•</span>
+                        <span x-text="charCount"></span> characters
+                        <span x-show="lastSaved">
+                            • Last saved: <span x-text="lastSaved"></span>
+                        </span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/admin.js"></script>
+    <script src="js/editor.js"></script>
+</body>
+</html>
