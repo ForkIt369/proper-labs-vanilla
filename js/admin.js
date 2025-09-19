@@ -9,7 +9,7 @@ function adminPanel() {
         token: localStorage.getItem('admin_token'),
 
         // Editor state
-        currentFile: null,
+        currentFile: { name: '', path: '' },
         content: '',
         preview: '',
         isDirty: false,
